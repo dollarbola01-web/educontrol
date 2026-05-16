@@ -1,0 +1,8 @@
+{
+  "name": "EduControl LAN",
+  "description": "O'qituvchilar uchun real vaqt rejimida talabalar faoliyatini kuzatish va mahalliy tarmoq orqali dasturiy ta'minot ruxsatlarini boshqarish imkonini beruvchi sinf boshqaruv tizimi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

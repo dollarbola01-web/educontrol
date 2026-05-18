@@ -20,16 +20,16 @@ npm install
 *(Biroz vaqt oladi, kutib turing).*
 
 ### 4-QADAM: .EXE faylni yaratish
-Hammasi tayyor bo'lgach, terminalga mana bu buyruqni yozing:
+Yangi (debug imkoniyati bor) versiyani yaratish uchun mana bu buyruqni yozing:
 ```bash
 npm run build && npx electron-builder --win
 ```
 
-### AGAR XATO CHIQSA:
-Agar qandaydir xato chiqsa (masalan, `rm` yoki `rimraf` xatosi), ushbu buyruqni sinab ko'ring:
-```bash
-npx rimraf dist release && npm run build && npx electron-builder --win
-```
+### AGAR OQ EKRAN (WHITE SCREEN) CHIQSA:
+Dasturni ochganingizda o'ng tomonda **"Developer Tools"** oynasi ochiladi. 
+1. Yuqoridagi **"Console"** bo'limiga o'ting.
+2. Agar u yerda qizil yozuvlar bo'lsa (masalan: `ERR_CONNECTION_REFUSED`), rasmga olib menga tashlang.
+3. Bu bizga server ishlayaptimi yoki yo'qligini aniqlashga yordam beradi.
 
 ### NATIJA:
-Buyruq tugagach, papkangiz ichida **`release`** degan papka paydo bo'ladi. Uning ichida **EduControl Setup.exe** (o'rnatish fayli) tayyor bo'ladi.
+Buyruq tugagach, papkangiz ichida **`release`** degan papka paydo bo'ladi. Uning ichida **EduControl Setup.exe** tayyor bo'ladi.

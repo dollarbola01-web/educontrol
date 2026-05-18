@@ -52,13 +52,23 @@ function createWindow() {
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
+      devTools: true, // Enable DevTools
     },
   });
 
-  // Wait for server to be ready (short delay)
-  setTimeout(() => {
-    mainWindow?.loadURL('http://localhost:3000');
-  }, isDev ? 5000 : 2000);
+  // Open DevTools by default to debug white screen
+  mainWindow.webContents.openDevTools();
+
+  // Load the app
+  const loadApp = () => {
+    mainWindow?.loadURL('http://localhost:3000').catch(() => {
+      console.log('Server not ready yet, retrying...');
+      setTimeout(loadApp, 1000);
+    });
+  };
+
+  // Wait for server to be ready
+  setTimeout(loadApp, isDev ? 2000 : 1000);
 
   mainWindow.on('closed', () => {
     mainWindow = null;

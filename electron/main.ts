@@ -13,8 +13,8 @@ function startServer() {
   if (isDev) {
     serverPath = path.join(app.getAppPath(), 'server.ts');
   } else {
-    // In production, server.cjs is in extraResources (resources/dist/server.cjs)
-    serverPath = path.join(process.resourcesPath, 'dist/server.cjs');
+    // In production, server.cjs is in the app.asar bundle
+    serverPath = path.join(app.getAppPath(), 'dist/server.cjs');
   }
 
   console.log(`Starting server from: ${serverPath}`);
@@ -27,7 +27,7 @@ function startServer() {
       silent: true
     });
   } else {
-    // In production, it's a bundled JS file
+    // In production, it's a bundled JS file inside asar
     serverProcess = fork(serverPath, [], {
       env: { ...process.env, NODE_ENV: 'production' },
       silent: true
@@ -48,7 +48,7 @@ function createWindow() {
     width: 1200,
     height: 800,
     title: "EduControl LAN",
-    icon: path.join(__dirname, '../public/favicon.ico'),
+    icon: path.join(__dirname, 'favicon.ico'),
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
